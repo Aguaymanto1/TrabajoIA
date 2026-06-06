@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cineplanet IA - Cartelera</title>
+    <link rel="stylesheet" href="/static/style.css">
+<script src="/static/script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-cine">cine</span><span class="logo-planet">planet</span>
+            </div>
+            <nav>
+                <a href="#" class="active">Películas</a>
+                <a href="#">Cines</a>
+                <a href="#">Promociones</a>
+                <a href="#">Socio</a>
+                <a href="#">Dulcería</a>
+                <a href="#">Corporativo</a>
+                <a href="#">Blog</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-icon">👤</button>
+                <button class="btn-icon">🔍</button>
+                <button class="btn-icon">❓</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="movies-section-header">
+            <h2>Películas</h2>
+            <div class="tabs">
+                <button class="tab-btn active">En cartelera</button>
+                <button class="tab-btn">Preventa</button>
+                <button class="tab-btn">Próximos estrenos</button>
+                <button class="tab-btn">Festival Al Este</button>
+            </div>
+        </section>
+
+        <div class="movies-grid">
+            
+            <div class="movie-card large-card">
+                <div class="badge-estreno">Estreno</div>
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop" alt="Scary Movie">
+                <div class="card-overlay">
+                    <h3>Scary Movie</h3>
+                    <button class="btn-buy">🎟️ Comprar</button>
+                </div>
+            </div>
+
+            <div class="movie-card medium-tall-card">
+                <div class="badge-estreno">Estreno</div>
+                <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=400&auto=format&fit=crop" alt="Amos del Universo">
+                <div class="card-overlay">
+                    <h3>Amos del Universo</h3>
+                    <button class="btn-buy">🎟️ Comprar</button>
+                </div>
+            </div>
+
+            <div class="movie-card medium-wide-card">
+                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=500&auto=format&fit=crop" alt="Backrooms">
+                <div class="card-overlay">
+                    <h3>Backrooms: Sin Salida</h3>
+                    <button class="btn-buy">🎟️ Comprar</button>
+                </div>
+            </div>
+
+            <div class="movie-card small-card">
+                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=300&auto=format&fit=crop" alt="Amando a Amanda">
+                <div class="card-overlay">
+                    <h3>Amando a Amanda</h3>
+                    <button class="btn-buy">🎟️ Comprar</button>
+                </div>
+            </div>
+
+            <div class="movie-card small-card">
+                <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=300&auto=format&fit=crop" alt="Michael">
+                <div class="card-overlay">
+                    <h3>Michael</h3>
+                    <button class="btn-buy">🎟️ Comprar</button>
+                </div>
+            </div>
+
+            <div class="movie-card view-more-card">
+                <div class="view-more-content">
+                    <span class="plus-icon">+</span>
+                    <h3>Ver más películas</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="filters-bar">
+            <div class="filter-select">Por película <span>▼</span></div>
+            <div class="filter-select">Por ciudad <span>▼</span></div>
+            <div class="filter-select">Por cine <span>▼</span></div>
+            <div class="filter-select">Por fecha <span>▼</span></div>
+            <button class="btn-filter-submit" disabled>🎛️ Filtrar</button>
+        </div>
+    </main>
+
+    <div id="chat-container">
+        <div id="chat-wrap">
+  <div id="chat-header">
+    <div class="bot-avatar">🎬</div>
+    <div class="header-info">
+      <div class="name">Aster — Asistente Cineplanet</div>
+      <div class="status"><span class="dot-online"></span>En línea ahora</div>
+    </div>
+  </div>
+
+  <div id="messages"></div>
+
+  <!-- Botones de acceso rápido -->
+  <div class="quick-btns">
+    <button class="qbtn" onclick="sendQuick('Ver cartelera de hoy')">🎬 Cartelera</button>
+    <button class="qbtn" onclick="sendQuick('¿Cuáles son las sedes disponibles?')">📍 Sedes</button>
+    <button class="qbtn" onclick="sendQuick('Quiero hacer una reserva')">🎟️ Reservar</button>
+    <button class="qbtn" onclick="sendQuick('¿Qué combos tienen?')">🍿 Combos</button>
+    <button class="qbtn" onclick="sendQuick('¿Cuáles son las promociones?')">🏷️ Promos</button>
+  </div>
+
+ <div id="input-area">
+    <textarea id="userInput" placeholder="Escribe tu consulta aquí..." rows="1"></textarea>
+    <button id="sendBtn">➤</button>
+</div>
+</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
