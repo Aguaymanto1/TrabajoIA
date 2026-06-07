@@ -1,0 +1,141 @@
+{
+  "peliculas": [
+    {
+      "id": "P01",
+      "titulo": "Scary Movie: Terroríficamente Incorrecta",
+      "estado": "Estreno",
+      "genero": "Comedia/Terror",
+      "clasificacion": "M18",
+      "duracion": "95 min",
+      "sinopsis": "Un grupo de adolescentes despistados se enfrenta a un asesino enmascarado en esta parodia de películas de terror.",
+      "formatos": ["2D", "Xtreme"],
+      "idiomas": ["Doblado", "Subtitulado"],
+      "funciones": {
+        "San Miguel": ["17:10", "19:30", "21:50", "22:20"],
+        "Mall del Sur": ["17:50", "19:20", "20:20", "21:40"],
+        "Salaverry (Prime)": ["20:20", "22:30"]
+      }
+    },
+    {
+      "id": "P02",
+      "titulo": "Amos del Universo",
+      "estado": "Estreno",
+      "genero": "Acción/Fantasía",
+      "clasificacion": "M14",
+      "duracion": "132 min",
+      "sinopsis": "He-Man debe proteger Eternia de las fuerzas del malvado Skeletor.",
+      "formatos": ["2D", "3D"],
+      "idiomas": ["Doblado", "Subtitulado"],
+      "funciones": {
+        "Norte": ["18:00", "19:30", "21:00", "22:30"],
+        "San Miguel": ["18:00", "21:00"],
+        "Centro Cívico": ["17:00", "19:45"]
+      }
+    },
+    {
+      "id": "P03",
+      "titulo": "Backrooms: Sin Salida",
+      "estado": "En cartelera",
+      "genero": "Terror/Suspenso",
+      "clasificacion": "M14",
+      "duracion": "110 min",
+      "sinopsis": "Un joven queda atrapado en una dimensión de cuartos amarillos infinitos donde algo lo persigue.",
+      "formatos": ["2D"],
+      "idiomas": ["Subtitulado"],
+      "funciones": {
+        "San Borja (Prime)": ["17:45", "20:15"],
+        "Mall del Sur": ["17:20", "18:30", "20:00", "21:20"]
+      }
+    },
+    {
+      "id": "P04",
+      "titulo": "Michael",
+      "estado": "En cartelera",
+      "genero": "Biografía/Musical",
+      "clasificacion": "M14",
+      "duracion": "127 min",
+      "sinopsis": "La historia real y sin filtros de la vida del Rey del Pop.",
+      "formatos": ["2D", "Prime"],
+      "idiomas": ["Subtitulado"],
+      "funciones": {
+        "Salaverry (Prime)": ["17:35", "18:50", "20:30"],
+        "San Miguel": ["17:30", "18:40", "20:30"]
+      }
+    },
+    {
+      "id": "P05",
+      "titulo": "Star Wars: The Mandalorian and Grogu",
+      "estado": "En cartelera",
+      "genero": "Ciencia Ficción/Aventura",
+      "clasificacion": "APT",
+      "duracion": "133 min",
+      "sinopsis": "El mandaloriano Din Djarin y Grogu enfrentan nuevos peligros en los confines de la galaxia.",
+      "formatos": ["2D", "Xtreme"],
+      "idiomas": ["Doblado", "Subtitulado"],
+      "funciones": {
+        "Norte": ["18:20", "21:30"],
+        "San Miguel": ["18:20", "21:20"]
+      }
+    },
+    {
+      "id": "P06",
+      "titulo": "El Diablo Viste a la Moda 2",
+      "estado": "En cartelera",
+      "genero": "Comedia/Drama",
+      "clasificacion": "APT",
+      "duracion": "120 min",
+      "sinopsis": "Miranda Priestly enfrenta el desafío de mantener su imperio de la moda en la era digital.",
+      "formatos": ["2D"],
+      "idiomas": ["Subtitulado"],
+      "funciones": {
+        "Salaverry (Prime)": ["18:45", "21:15"],
+        "Mall del Sur": ["17:30", "20:10"]
+      }
+    },
+    {
+      "id": "P07",
+      "titulo": "Amando a Amanda",
+      "estado": "En cartelera",
+      "genero": "Drama/Romance",
+      "clasificacion": "M14",
+      "duracion": "90 min",
+      "sinopsis": "Una historia profunda sobre los límites del amor y la redención personal.",
+      "formatos": ["2D"],
+      "idiomas": ["Español"],
+      "funciones": {
+        "Centro Cívico": ["17:00", "19:10", "21:40"],
+        "Norte": ["17:40", "19:50", "22:15"]
+      }
+    }
+  ],
+  "precios": {
+    "cineplanet_2d_regular": 23.00,
+    "cineplanet_3d": 28.00,
+    "cineplanet_prime": 35.00,
+    "cineplanet_xtreme": 26.00,
+    "competencia_promedio": 28.00
+  },
+  "programa_socio": {
+    "nombre": "Socio Cineplanet",
+    "beneficios": [
+      "Acumulación de puntos por cada compra.",
+      "Refill gratis de canchita grande o gigante.",
+      "Promociones exclusivas en tu mes de cumpleaños."
+    ]
+  },
+  "promociones": [
+    "Martes 2x1 en entradas 2D pagando con tarjeta BBVA.",
+    "Miércoles del Espectador: Entradas 2D a S/. 14.50.",
+    "Jueves de Entel: Códigos 2x1 desde el app de Entel."
+  ],
+  "combos": [
+    { "nombre": "Combo Clásico", "descripcion": "1 Canchita mediana + 1 gaseosa mediana", "precio": 22.00 },
+    { "nombre": "Combo Dúo", "descripcion": "2 Canchitas grandes + 2 gaseosas grandes", "precio": 38.00 },
+    { "nombre": "Combo Prime", "descripcion": "1 Canchita gigante + 2 gaseosas grandes + tequeños", "precio": 55.00 }
+  ],
+  "locales": {
+    "lima_regular": ["Norte", "San Miguel", "Centro Cívico", "Mall del Sur"],
+    "lima_prime": ["Salaverry", "San Borja"],
+    "provincias": ["Arequipa (Mall Aventura)", "Trujillo (Real Plaza)", "Cusco"]
+  }
+}

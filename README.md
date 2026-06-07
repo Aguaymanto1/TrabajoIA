@@ -1,6 +1,6 @@
-# 🎬 Aster — Asistente Virtual Oficial de Cineplanet Perú
+# 🎬 Poppy — Asistente Virtual Oficial de Cineplanet Perú
 
-Este proyecto consiste en una aplicación web interactiva y unificada que integra la interfaz de usuario de **Cineplanet** con un chatbot inteligente llamado **Aster**. El asistente guía al usuario paso a paso en la consulta de cartelera, dulcería, promociones y el flujo completo de reserva de entradas utilizando la API de **Groq** con el modelo de lenguaje de última generación `llama-3.3-70b-versatile`.
+Este proyecto consiste en una aplicación web interactiva y unificada que integra la interfaz de usuario de **Cineplanet** con un chatbot inteligente llamado **Poppy**. El asistente guía al usuario paso a paso en la consulta de cartelera, dulcería, promociones y el flujo completo de reserva de entradas utilizando la API de **Groq** con el modelo de lenguaje de última generación `llama-3.3-70b-versatile`.
 
 ---
 

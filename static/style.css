@@ -1,321 +1,501 @@
-/* --- VARIABLES DE DISEÑO CINEPLANET --- */
+/* =========================================================
+   1. VARIABLES Y RESET (ESTILO CINEPLANET OFICIAL)
+   ========================================================= */
 :root {
-    --cp-dark-bg: #f4f6f9; /* Fondo claro de la sección inferior de la web */
-    --cp-nav-blue: #001647;
-    --cp-text-dark: #1a1a1a;
+    --cp-blue: #022359; 
     --cp-pink: #e6005c;
-    --cp-blue-gradient: linear-gradient(90deg, #021a52 0%, #0036b3 100%);
-    --chat-bg: rgba(15, 23, 42, 0.9);
+    --cp-light: #f5f5f5;
+    --cp-dark-text: #333;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Roboto', Arial, sans-serif; 
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--cp-dark-bg);
-    color: var(--cp-text-dark);
-    padding-bottom: 60px;
+body { 
+    background-color: var(--cp-blue); 
+    color: white; 
 }
 
-/* --- NAVBAR SUPERIOR --- */
-header {
-    background: var(--cp-blue-gradient);
-    color: white;
-    padding: 15px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+/* =========================================================
+   2. HEADER Y NAVEGACIÓN
+   ========================================================= */
+header { 
+    padding: 15px 40px; 
+}
+.nav-container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+nav { 
+    display: flex; 
+    gap: 20px; 
+}
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 0.95rem; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+}
+nav a:hover { 
+    color: var(--cp-pink); 
+}
+.nav-actions { 
+    display: flex; 
+    gap: 20px; 
+    align-items: flex-start; 
+}
+.nav-icon { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.icon-label { 
+    background: var(--cp-pink); 
+    color: white; 
+    font-size: 0.6rem; 
+    padding: 2px 6px; 
+    border-radius: 10px; 
+    margin-bottom: -5px; 
+    z-index: 2; 
+}
+.btn-icon { 
+    background: transparent; 
+    border: 1px solid white; 
+    color: white; 
+    border-radius: 50%; 
+    width: 35px; 
+    height: 35px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
 }
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* =========================================================
+   3. HERO SECTION (CARRUSEL OSCURO)
+   ========================================================= */
+.hero-section { 
+    background-color: #011842; 
+    position: relative; 
+    text-align: center; 
+    padding: 20px 0 120px; 
+    overflow: hidden; 
+    border-bottom: 2px solid #0044cc; 
+}
+.bg-title { 
+    font-size: 12rem; 
+    font-weight: 900; 
+    color: var(--cp-pink); 
+    opacity: 0.9; 
+    position: absolute; 
+    top: -50px; 
+    left: 0; 
+    right: 0; 
+    z-index: 0; 
+    letter-spacing: -5px; 
+}
+.carousel-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 60px; 
+    position: relative; 
+    z-index: 1; 
+}
+.carousel-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.frame { 
+    border: 8px solid #0442a5; 
+    border-radius: 4px; 
+    position: relative; 
+    width: 220px; 
+    height: 330px; /* Forzamos la proporción del póster 2:3 */
+    overflow: hidden; 
+    background: #000; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
+}
+.frame img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    transition: transform 0.3s; 
+    opacity: 0.9; 
+}
+.btn-buy-hover { 
+    position: absolute; 
+    bottom: -50px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: var(--cp-pink); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    transition: bottom 0.3s; 
+    cursor: pointer; 
+}
+.frame:hover img { 
+    transform: scale(1.05); 
+    opacity: 1; 
+}
+.frame:hover .btn-buy-hover { 
+    bottom: 10px; 
+}
+.movie-label { 
+    background: #ff5e00; 
+    color: white; 
+    padding: 5px 20px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    margin-top: 15px; 
+    font-size: 0.9rem; 
+}
+
+/* =========================================================
+   4. FILTROS FLOTANTES
+   ========================================================= */
+.filters-wrapper { 
+    position: relative; 
+    z-index: 10; 
+    margin-top: -45px; 
+    display: flex; 
+    justify-content: center; 
+}
+.filters-bar { 
+    display: flex; 
+    background: white; 
+    padding: 15px 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+    align-items: center; 
+    color: var(--cp-dark-text); 
+    min-width: 800px; 
+}
+.filter-col { 
+    display: flex; 
+    flex-direction: column; 
+    padding: 0 30px; 
+    border-right: 1px solid #e0e0e0; 
+    cursor: pointer; 
+}
+.filter-col strong { 
+    font-size: 0.95rem; 
+    margin-bottom: 2px; 
+}
+.filter-col span { 
+    font-size: 0.75rem; 
+    color: #888; 
+}
+.btn-filter-submit { 
+    background: #e0e0e0; 
+    color: white; 
+    border: none; 
+    padding: 10px 30px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    margin-left: 20px; 
+    margin-right: 10px; 
+}
+
+/* =========================================================
+   5. SECCIÓN BLANCA (BENTO GRID Y SOCIO)
+   ========================================================= */
+.white-section { 
+    background: white; 
+    color: var(--cp-dark-text); 
+    padding: 40px 20px 80px; 
+    margin-top: -40px; 
+    position: relative; 
+}
+.watermark-title { 
+    text-align: center; 
+    font-size: 6rem; 
+    font-weight: 900; 
+    color: #f0f0f0; 
+    margin-bottom: -35px; 
+    text-transform: uppercase; 
+    letter-spacing: -2px; 
+}
+.tabs { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    border-bottom: 1px solid #eee; 
+    margin: 0 auto 40px; 
+    max-width: 800px; 
+    position: relative; 
+    z-index: 2; 
+}
+.tab-btn { 
+    background: none; 
+    border: none; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+    color: #555; 
+    padding-bottom: 15px; 
+    cursor: pointer; 
+    position: relative; 
+    text-transform: uppercase; 
+}
+.tab-btn.active { 
+    color: #000; 
+}
+.tab-btn.active::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -1px; 
+    left: 0; 
+    right: 0; 
+    height: 3px; 
+    background: var(--cp-pink); 
+}
+
+.movies-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-auto-rows: 240px; 
+    gap: 10px; 
+    max-width: 1050px; 
+    margin: 0 auto; 
+}
+.large-card { grid-column: span 2; grid-row: span 2; }
+.medium-tall-card { grid-column: span 1; grid-row: span 2; }
+.small-card { grid-column: span 1; grid-row: span 1; }
+
+.movie-card { 
+    position: relative; 
+    overflow: hidden; 
+    background: #000; 
+}
+.movie-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: opacity 0.3s; 
+}
+.movie-card:hover img { 
+    opacity: 0.8; 
+}
+.badge-estreno { 
+    position: absolute; 
+    top: 20px; 
+    left: -40px; 
+    background: var(--cp-pink); 
+    color: white; 
+    padding: 5px 45px; 
+    font-size: 0.75rem; 
+    font-weight: bold; 
+    transform: rotate(-45deg); 
+    z-index: 2; 
+    text-transform: uppercase; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); 
+}
+
+.view-more-card { 
+    background: var(--cp-pink); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    color: white; 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+}
+.view-more-card:hover { 
+    transform: scale(1.02); 
+}
+.view-more-content h3 { 
+    font-size: 1.2rem; 
+    text-align: center; 
+    line-height: 1.3; 
+}
+
+.socio-banner { 
+    max-width: 1050px; 
+    margin: 60px auto 0; 
+    border: 2px solid #eee; 
+    border-radius: 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 30px 40px; 
+    background: url('https://www.transparenttextures.com/patterns/stardust.png'); 
+}
+.socio-text h3 { 
+    color: var(--cp-blue); 
+    font-size: 1.5rem; 
+    max-width: 400px; 
+}
+.socio-actions { 
+    display: flex; 
+    gap: 15px; 
+}
+.btn-unete { 
+    background: var(--cp-pink); 
+    color: white; 
+    border: none; 
+    padding: 10px 30px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+.btn-vermas { 
+    background: transparent; 
+    color: var(--cp-blue); 
+    border: 1px solid var(--cp-blue); 
+    padding: 10px 30px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+/* =========================================================
+   6. FOOTER CORPORATIVO
+   ========================================================= */
+.cp-footer {
+    background-color: #001647;
+    color: #a1b0c6;
+    padding: 60px 40px 40px;
+    font-size: 0.85rem;
+}
+.footer-container {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.logo-planet {
-    color: #00a2ff;
-}
-
-nav {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 20px;
 }
-
-nav a {
-    color: #bccbe6;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding-bottom: 5px;
-    transition: color 0.3s;
+.footer-col {
+    flex: 1;
+    min-width: 200px;
 }
-
-nav a:hover, nav a.active {
+.footer-col h4 {
     color: white;
-    border-bottom: 3px solid var(--cp-pink);
-}
-
-.nav-actions {
-    display: flex;
-    gap: 15px;
-}
-
-.btn-icon {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-/* --- SECCIÓN PRINCIPAL --- */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.movies-section-header h2 {
-    font-size: 3rem;
-    color: #cccccc;
-    font-weight: 800;
-    margin-bottom: 20px;
-}
-
-.tabs {
-    display: flex;
-    gap: 25px;
-    border-bottom: 2px solid #e1e6f0;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-}
-
-.tab-btn {
-    background: transparent;
-    border: none;
     font-size: 1rem;
-    font-weight: bold;
-    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-col ul li {
+    margin-bottom: 12px;
     cursor: pointer;
-    padding: 5px 0;
+    transition: color 0.2s;
 }
-
-.tab-btn.active {
+.footer-col ul li:hover {
     color: var(--cp-pink);
-    border-bottom: 3px solid var(--cp-pink);
-    margin-bottom: -13px;
 }
 
-/* --- BENTO GRID DE PELÍCULAS --- */
-.movies-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 240px;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-/* Definición de tamaños asimétricos */
-.large-card {
-    grid-column: span 2;
-    grid-row: span 2; /* Ocupa 2x2 */
-}
-
-.medium-tall-card {
-    grid-column: span 1;
-    grid-row: span 2; /* Ocupa 1 de ancho x 2 de alto */
-}
-
-.medium-wide-card {
-    grid-column: span 1;
-    grid-row: span 1;
-}
-
-.small-card {
-    grid-column: span 1;
-    grid-row: span 1;
-}
-
-.view-more-card {
-    grid-column: span 1;
-    grid-row: span 1;
+/* =========================================================
+   7. INTERFAZ DEL CHATBOT (POPPY) Y LAUNCHER
+   ========================================================= */
+/* Botón Flotante */
+.chat-launcher {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
     background: var(--cp-pink);
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 5px 20px rgba(230, 0, 92, 0.4);
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    font-size: 28px;
+    z-index: 1001;
     transition: transform 0.3s;
 }
+.chat-launcher:hover { transform: scale(1.1); }
 
-.view-more-card:hover {
-    transform: scale(1.02);
-}
-
-.view-more-content {
-    text-align: center;
-    color: white;
-}
-
-.plus-icon {
-    font-size: 3rem;
-    font-weight: 300;
-    display: block;
-}
-
-/* Estilos comunes de las tarjetas de películas */
-.movie-card {
-    position: relative;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    background: #000;
-}
-
-.movie-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.movie-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Etiquetas inclinadas de Estreno */
-.badge-estreno {
+/* Notificación Roja en el botón */
+.chat-badge {
     position: absolute;
-    top: 15px;
-    left: -35px;
-    background: var(--cp-pink);
+    top: -5px;
+    right: -5px;
+    background: #ff0000;
     color: white;
-    padding: 5px 40px;
-    font-size: 0.75rem;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
     font-weight: bold;
-    text-transform: uppercase;
-    transform: rotate(-45deg);
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* Capa oscura con textos sobre la imagen al hacer hover */
-.card-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(top, transparent 0%, rgba(0,0,0,0.9) 100%);
-    background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.95) 0%, transparent 100%);
-    padding: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 50%;
-    color: white;
-}
-
-.card-overlay h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.btn-buy {
-    background: var(--cp-pink);
-    color: white;
-    border: none;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    width: fit-content;
-    padding: 8px 18px;
-    transition: background 0.2s;
-}
-
-.btn-buy:hover {
-    background: #bd004c;
-}
-
-/* --- BARRA DE FILTROS --- */
-.filters-bar {
-    display: flex;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    gap: 15px;
     align-items: center;
+    justify-content: center;
+    border: 2px solid white;
 }
 
-.filter-select {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #e1e6f0;
-    border-radius: 6px;
-    color: #495057;
-    font-size: 0.95rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-filter-submit {
-    background: #e1e6f0;
-    color: #a0aab5;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: not-allowed;
-}
-
-/* --- INTERFAZ DEL CHATBOT --- */
-/* --- INTERFAZ DEL CHATBOT OPTIMIZADA --- */
-
+/* Contenedor del Chat (Ajustado para animaciones) */
 #chat-wrap {
     width: 380px; 
-    height: 580px;
+    height: 600px;
     position: fixed; 
     right: 25px; 
-    bottom: 25px;
+    bottom: 100px; /* Sube un poco para no tapar el lugar del botón */
     border-radius: 20px; 
     overflow: hidden;
     display: flex; 
     flex-direction: column;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.05);
     background: #f8fafc;
     z-index: 1000;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    transform-origin: bottom right;
 }
 
-/* Cabecera del chat */
+/* Clases de estado para abrir/cerrar */
+.chat-hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    visibility: hidden;
+    pointer-events: none;
+}
+.chat-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
 #chat-header {
     background: linear-gradient(135deg, #001647 0%, #002b8c 100%);
     padding: 16px;
     display: flex; 
     align-items: center; 
-    gap: 12px; 
+    justify-content: space-between; /* Espacio entre el logo y la X */
     flex-shrink: 0;
 }
+
+/* Botón de Cerrar (X) */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 5px;
+}
+.close-btn:hover { color: white; }
 
 .bot-avatar {
     width: 40px; 
@@ -328,189 +508,211 @@ main {
     font-size: 20px;
 }
 
-.header-info .name { 
-    color: white; 
-    font-size: 15px; 
-    font-weight: 600; 
-    margin-bottom: 2px;
+.header-info .name { color: white; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.header-info .status { color: rgba(255, 255, 255, 0.75); font-size: 11px; display: flex; align-items: center; gap: 5px; }
+.dot-online { width: 7px; height: 7px; background: #00e676; border-radius: 50%; box-shadow: 0 0 8px #00e676; }
+
+#messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: #f1f5f9; }
+.msg-row { display: flex; align-items: flex-end; gap: 8px; animation: fadeIn 0.3s ease-out; }
+.msg-row.user { flex-direction: row-reverse; }
+.msg-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+.msg-avatar.bot-av { background: #001647; color: white; }
+.msg-avatar.user-av { background: var(--cp-pink); color: white; }
+
+.bubble { max-width: 85%; padding: 12px 16px; border-radius: 18px; font-size: 13.5px; line-height: 1.45; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.bubble.bot { background: white; color: #1e293b; border-bottom-left-radius: 4px; border: 1px solid #e2e8f0; line-height: 1.5; font-size: 14px; }
+.bubble.user { background: #0036b3; color: white; border-bottom-right-radius: 4px; }
+.bubble.bot strong { color: var(--cp-pink); font-weight: 700; }
+.bot-list-item { margin-left: 24px; margin-bottom: 10px; margin-top: 10px; list-style-type: none; position: relative; }
+.bot-list-item::before { content: "🎬"; position: absolute; left: -24px; font-size: 12px; }
+
+.typing-indicator { display: flex; gap: 4px; padding: 4px 2px; align-items: center; height: 20px; }
+.typing-indicator span { width: 6px; height: 6px; background: var(--cp-pink); border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
+.typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+.typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+@keyframes bounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; } 40% { transform: scale(1); opacity: 1; } }
+
+.quick-btns { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 16px; background: #f1f5f9; border-top: 1px solid rgba(0, 0, 0, 0.04); }
+.qbtn { background: white; border: 1px solid #cbd5e1; border-radius: 20px; padding: 7px 14px; font-size: 12px; color: #334155; cursor: pointer; font-weight: 500; transition: all 0.2s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.qbtn:hover { border-color: #0036b3; color: #0036b3; background: #f8fafc; transform: translateY(-1px); }
+
+#input-area { display: flex; align-items: center; padding: 12px 16px; gap: 10px; background: white; border-top: 1px solid #e2e8f0; flex-shrink: 0; }
+#userInput { flex: 1; padding: 10px 16px; border-radius: 24px; border: 1px solid #cbd5e1; background: #f8fafc; color: #0f172a; font-size: 13.5px; outline: none; transition: all 0.2s; resize: none; }
+#userInput:focus { border-color: #0036b3; background: white; box-shadow: 0 0 0 3px rgba(0, 54, 179, 0.15); }
+#sendBtn { width: 38px; height: 38px; background: var(--cp-pink); border: none; border-radius: 50%; color: white; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; box-shadow: 0 3px 8px rgba(230, 0, 92, 0.25); padding-left: 2px; }
+#sendBtn:hover { background: #bd004c; transform: scale(1.05); }
+#messages::-webkit-scrollbar { width: 5px; }
+#messages::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   8. MEDIA QUERIES (RESPONSIVE FINAL)
+   ========================================================= */
+@media (max-width: 1080px) {
+    .filters-bar { min-width: 90%; }
+    .movies-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
+    .large-card, .medium-tall-card { grid-column: span 1; grid-row: span 1; }
 }
 
-.header-info .status { 
-    color: rgba(255, 255, 255, 0.75); 
-    font-size: 11px; 
-    display: flex; 
-    align-items: center; 
-    gap: 5px; 
+@media (max-width: 768px) {
+    .hero-section { padding-bottom: 60px; }
+    .bg-title { font-size: 6rem; top: 0; }
+    .carousel-container { flex-direction: column; gap: 20px; }
+    .filters-bar { flex-direction: column; gap: 10px; padding: 20px; }
+    .filter-col { border-right: none; border-bottom: 1px solid #e0e0e0; width: 100%; text-align: center; padding: 10px 0; }
+    .btn-filter-submit { margin: 15px 0 0 0; width: 100%; }
+    .movies-grid { grid-template-columns: 1fr; }
+    .watermark-title { font-size: 3.5rem; }
+    
+    /* El chat ocupa toda la pantalla en móviles */
+    #chat-wrap.chat-visible { 
+        width: 100%; 
+        height: 100%; 
+        right: 0; 
+        bottom: 0; 
+        border-radius: 0; 
+    }
+    .chat-launcher { bottom: 15px; right: 15px; }
 }
 
-.dot-online { 
-    width: 7px; 
-    height: 7px; 
-    background: #00e676; 
-    border-radius: 50%; 
-    box-shadow: 0 0 8px #00e676;
+/* =========================================================
+   8. MEDIA QUERIES (RESPONSIVE BASICO)
+   ========================================================= */
+@media (max-width: 1080px) {
+    .filters-bar { min-width: 90%; }
+    .movies-grid { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
+    .large-card, .medium-tall-card { grid-column: span 1; grid-row: span 1; }
 }
 
-/* Área de Mensajes */
-#messages {
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 16px;
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px;
-    background: #f1f5f9;
+@media (max-width: 768px) {
+    .hero-section { padding-bottom: 60px; }
+    .bg-title { font-size: 6rem; top: 0; }
+    .carousel-container { flex-direction: column; gap: 20px; }
+    .filters-bar { flex-direction: column; gap: 10px; padding: 20px; }
+    .filter-col { border-right: none; border-bottom: 1px solid #e0e0e0; width: 100%; text-align: center; padding: 10px 0; }
+    .btn-filter-submit { margin: 15px 0 0 0; width: 100%; }
+    .movies-grid { grid-template-columns: 1fr; }
+    .watermark-title { font-size: 3.5rem; }
+    #chat-wrap { width: 100%; height: 100%; right: 0; bottom: 0; border-radius: 0; }
 }
 
-.msg-row { 
-    display: flex; 
-    align-items: flex-end; 
-    gap: 8px; 
-    animation: fadeIn 0.3s ease-out;
+/* =========================================================
+   9. ESTILOS DE INTERFAZ GENERATIVA (TICKET VIRTUAL)
+   ========================================================= */
+.cinema-ticket {
+    background: #ffffff;
+    color: #1e293b;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    font-family: 'Courier New', Courier, monospace; /* Estilo clásico de ticket físico */
+    animation: ticketSlide 0.4s ease-out;
 }
 
-.msg-row.user { 
-    flex-direction: row-reverse; 
-}
-
-.msg-avatar {
-    width: 28px; 
-    height: 28px; 
-    border-radius: 50%;
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    font-size: 12px; 
-    font-weight: bold; 
-    flex-shrink: 0;
-}
-
-.msg-avatar.bot-av { 
-    background: #001647; 
-    color: white; 
-}
-
-.msg-avatar.user-av { 
-    background: var(--cp-pink); 
-    color: white; 
-}
-
-/* Burbujas de chat modernas */
-.bubble { 
-    max-width: 75%; 
-    padding: 12px 16px; 
-    border-radius: 18px; 
-    font-size: 13.5px; 
-    line-height: 1.45; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-.bubble.bot { 
-    background: white; 
-    color: #1e293b; 
-    border-bottom-left-radius: 4px; 
-    border: 1px solid #e2e8f0; 
-}
-
-.bubble.user { 
-    background: #0036b3; 
-    color: white; 
-    border-bottom-right-radius: 4px; 
-}
-
-/* Botones de sugerencia / accesos rápidos */
-.quick-btns { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 8px; 
-    padding: 12px 16px; 
-    background: #f1f5f9; 
-    border-top: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.qbtn {
-    background: white; 
-    border: 1px solid #cbd5e1;
-    border-radius: 20px; 
-    padding: 7px 14px;
-    font-size: 12px; 
-    color: #334155; 
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.qbtn:hover { 
-    border-color: #0036b3; 
-    color: #0036b3;
-    background: #f8fafc;
-    transform: translateY(-1px);
-}
-
-/* Área de Entrada de texto (Input) */
-#input-area {
-    display: flex; 
-    align-items: center;
-    padding: 12px 16px; 
-    gap: 10px;
-    background: white; 
-    border-top: 1px solid #e2e8f0; 
-    flex-shrink: 0;
-}
-
-#userInput {
-    flex: 1; 
-    padding: 10px 16px; 
-    border-radius: 24px;
-    border: 1px solid #cbd5e1; 
-    background: #f8fafc;
-    color: #0f172a; 
-    font-size: 13.5px; 
-    outline: none;
-    transition: all 0.2s;
-}
-
-#userInput:focus { 
-    border-color: #0036b3; 
-    background: white;
-    box-shadow: 0 0 0 3px rgba(0, 54, 179, 0.15);
-}
-
-/* Botón enviar circular estilizado */
-#sendBtn {
-    width: 38px; 
-    height: 38px; 
-    background: var(--cp-pink);
-    border: none; 
-    border-radius: 50%; 
+.ticket-header {
+    background: var(--cp-blue);
     color: white;
-    cursor: pointer; 
-    font-size: 14px; 
+    padding: 12px;
+    text-align: center;
+}
+
+.ticket-logo {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    display: block;
+    text-transform: lowercase;
+}
+
+.ticket-title-main {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-top: 4px;
+    color: #00a2ff;
+}
+
+.ticket-body {
+    padding: 15px;
+}
+
+.ticket-info {
     display: flex;
-    align-items: center; 
-    justify-content: center;
-    transition: all 0.2s;
-    box-shadow: 0 3px 8px rgba(230, 0, 92, 0.25);
-    padding-left: 2px; /* Alineación óptica de la flecha */
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #f1f5f9;
+    padding-bottom: 4px;
 }
 
-#sendBtn:hover { 
-    background: #bd004c; 
-    transform: scale(1.05);
+.ticket-info strong {
+    font-family: sans-serif;
+    font-size: 0.75rem;
+    color: #64748b;
 }
 
-/* Scrollbar estética */
-#messages::-webkit-scrollbar {
-    width: 5px;
-}
-#messages::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 10px;
+.ticket-price {
+    color: var(--cp-pink);
+    font-weight: bold;
 }
 
-/* Pequeña animación de entrada */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+.ticket-divider {
+    border-top: 2px dashed #cbd5e1;
+    margin: 5px 0;
+    position: relative;
+}
+
+/* Círculos recortados a los lados del boleto */
+.ticket-divider::before, .ticket-divider::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    background: #f1f5f9; /* Debe coincidir con el fondo del chat de mensajes */
+    border-radius: 50%;
+}
+.ticket-divider::before { left: -9px; }
+.ticket-divider::after { right: -9px; }
+
+.ticket-footer {
+    padding: 15px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.barcode {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.ticket-footer small {
+    font-family: sans-serif;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.btn-buy-ticket-chat {
+    background: var(--cp-pink); 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 85%;
+    margin: 5px auto;
+    display: block;
+    box-shadow: 0 3px 10px rgba(230, 0, 92, 0.2);
+    transition: transform 0.2s;
+}
+.btn-buy-ticket-chat:hover { transform: translateY(-1px); }
+
+@keyframes ticketSlide {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
