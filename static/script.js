@@ -210,16 +210,6 @@ if (tx) {
     });
 }
 
-// --- CONEXIÓN DE LA WEB CON EL CHAT ---
-document.querySelectorAll('.btn-buy-hover').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const item = e.target.closest('.carousel-item');
-        if (item) {
-            const movieTitle = item.querySelector('.movie-label span').innerText;
-            sendQuick(`Quiero comprar entradas para ${movieTitle}`);
-        }
-    });
-});
 
 // --- LÓGICA DE ABRIR/CERRAR Y CARGAR HISTORIAL ---
 document.addEventListener('DOMContentLoaded', () => {
