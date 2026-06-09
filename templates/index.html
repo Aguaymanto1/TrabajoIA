@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cineplanet IA - Cartelera</title>
+    <title>Cineplanet Plus - Tu Experiencia de entretenimiento en el mejor lugar</title>
+    
+    <link rel="icon" href="static/posters/ODF.png" type="image/x-icon">
+    
     <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <div class="nav-container">
             <div class="logo">
-                <span class="logo-cine">cine</span><span class="logo-planet">planet</span>
+                <img src="/static/posters/logo-cineplanet.png" alt="Cineplanet" style="height: 40px; display: block;">
             </div>
             <nav>
-                <a href="#" class="active">Películas</a>
+                <a href="#">Películas</a>
                 <a href="#">Cines</a>
                 <a href="#">Promociones</a>
                 <a href="#">Socio</a>
@@ -23,112 +27,164 @@
                 <a href="#">Blog</a>
             </nav>
             <div class="nav-actions">
-                <button class="btn-icon">👤</button>
-                <button class="btn-icon">🔍</button>
-                <button class="btn-icon">❓</button>
+                <div class="nav-icon">
+                    <span class="icon-label">Únete</span>
+                    <button class="btn-icon">👤</button>
+                </div>
+                <button class="btn-icon" style="margin-top: 15px;">🔍</button>
+                <div class="nav-icon">
+                    <span class="icon-label">Ayuda</span>
+                    <button class="btn-icon">❓</button>
+                </div>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="movies-section-header">
-            <h2>Películas</h2>
-            <div class="tabs">
-                <button class="tab-btn active">En cartelera</button>
-                <button class="tab-btn">Preventa</button>
-                <button class="tab-btn">Próximos estrenos</button>
-                <button class="tab-btn">Festival Al Este</button>
+    <section class="hero-section">
+        <h1 class="bg-title">ESTRENOS</h1>
+        <div class="carousel-container">
+            <div class="carousel-item">
+                <div class="frame">
+                    <img src="/static/posters/scary_movie_ver2.jpg" alt="Scary Movie">
+                    <button class="btn-buy-hover" onclick="sendQuick('Quiero entradas para Scary Movie')">🎟️ COMPRAR</button>
+                </div>
+                <div class="movie-label"><span>Scary Movie</span></div>
             </div>
-        </section>
+            <div class="carousel-item">
+                <div class="frame">
+                    <img src="/static/posters/masters_of_the_universe.jpg" alt="Amos del Universo">
+                    <button class="btn-buy-hover" onclick="sendQuick('Quiero entradas para Amos del Universo')">🎟️ COMPRAR</button>
+                </div>
+                <div class="movie-label"><span>Amos del Universo</span></div>
+            </div>
+            <div class="carousel-item">
+                <div class="frame">
+                    <img src="/static/posters/backrooms_ver2.jpg" alt="BackRooms">
+                    <button class="btn-buy-hover" onclick="sendQuick('Quiero entradas para BackRooms')">🎟️ COMPRAR</button>
+                </div>
+                <div class="movie-label"><span>BackRooms</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="filters-wrapper">
+        <div class="filters-bar">
+            <div class="filter-col" style="padding: 0 15px;">
+                <strong>Por película</strong>
+                <select id="filtroPelicula" style="border: none; outline: none; background: transparent; font-size: 0.8rem; color: #666; cursor: pointer; padding-top: 5px; width: 100%;">
+                    <option value="">Qué quieres ver</option>
+                    <option value="Scary Movie">Scary Movie</option>
+                    <option value="Amos del Universo">Amos del Universo</option>
+                    <option value="Backrooms">Backrooms</option>
+                    <option value="Michael">Michael</option>
+                </select>
+            </div>
+            
+            <div class="filter-col" style="padding: 0 15px;">
+                <strong>Por ciudad</strong>
+                <select id="filtroCiudad" style="border: none; outline: none; background: transparent; font-size: 0.8rem; color: #666; cursor: pointer; padding-top: 5px; width: 100%;">
+                    <option value="">Dónde estás</option>
+                    <option value="Lima Regular">Lima (Norte, Sur, Centro)</option>
+                    <option value="Lima Prime">Lima (Salas Prime)</option>
+                    <option value="Provincias">Provincias</option>
+                </select>
+            </div>
+
+            <div class="filter-col" style="padding: 0 15px;">
+                <strong>Por cine</strong>
+                <select id="filtroCine" style="border: none; outline: none; background: transparent; font-size: 0.8rem; color: #666; cursor: pointer; padding-top: 5px; width: 100%;">
+                    <option value="">Elige tu Cineplanet</option>
+                    <option value="San Miguel">San Miguel</option>
+                    <option value="Norte">Norte</option>
+                    <option value="Mall del Sur">Mall del Sur</option>
+                    <option value="Salaverry">Salaverry</option>
+                    <option value="Centro Cívico">Centro Cívico</option>
+                </select>
+            </div>
+
+            <div class="filter-col" style="border-right: none; padding: 0 15px;">
+                <strong>Por fecha</strong>
+                <select id="filtroFecha" style="border: none; outline: none; background: transparent; font-size: 0.8rem; color: #666; cursor: pointer; padding-top: 5px; width: 100%;">
+                    <option value="">Elige un día</option>
+                    <option value="Hoy">Hoy</option>
+                    <option value="Mañana">Mañana</option>
+                </select>
+            </div>
+            
+            <button id="btnFiltrar" class="btn-filter-submit" style="cursor: pointer; background: var(--cp-pink); color: white;">Filtrar</button>
+        </div>
+    </div>
+
+    <main class="white-section">
+        <h2 class="watermark-title">Películas</h2>
+        
+        <div class="tabs">
+            <button class="tab-btn active">En cartelera</button>
+            <button class="tab-btn">Preventa</button>
+            <button class="tab-btn">Próximos estrenos</button>
+            <button class="tab-btn">Festival Al Este</button>
+        </div>
 
         <div class="movies-grid">
             
             <div class="movie-card large-card">
                 <div class="badge-estreno">Estreno</div>
-                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=600&auto=format&fit=crop" alt="Scary Movie">
-                <div class="card-overlay">
-                    <h3>Scary Movie</h3>
-                    <button class="btn-buy">🎟️ Comprar</button>
-                </div>
+                <img src="/static/posters/scary_movie_ver8.jpg" alt="Scary Movie">
             </div>
 
             <div class="movie-card medium-tall-card">
                 <div class="badge-estreno">Estreno</div>
-                <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=400&auto=format&fit=crop" alt="Amos del Universo">
-                <div class="card-overlay">
-                    <h3>Amos del Universo</h3>
-                    <button class="btn-buy">🎟️ Comprar</button>
-                </div>
-            </div>
-
-            <div class="movie-card medium-wide-card">
-                <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=500&auto=format&fit=crop" alt="Backrooms">
-                <div class="card-overlay">
-                    <h3>Backrooms: Sin Salida</h3>
-                    <button class="btn-buy">🎟️ Comprar</button>
-                </div>
+                <img src="/static/posters/masters_of_the_universe_ver2.jpg" alt="Amos del Universo">
             </div>
 
             <div class="movie-card small-card">
-                <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=300&auto=format&fit=crop" alt="Amando a Amanda">
-                <div class="card-overlay">
-                    <h3>Amando a Amanda</h3>
-                    <button class="btn-buy">🎟️ Comprar</button>
-                </div>
+                <img src="/static/posters/cnnel1bedfne1.png" alt="Backrooms">
             </div>
 
             <div class="movie-card small-card">
-                <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?q=80&w=300&auto=format&fit=crop" alt="Michael">
-                <div class="card-overlay">
-                    <h3>Michael</h3>
-                    <button class="btn-buy">🎟️ Comprar</button>
-                </div>
-            </div>
-
-            <div class="movie-card view-more-card">
-                <div class="view-more-content">
-                    <span class="plus-icon">+</span>
-                    <h3>Ver más películas</h3>
-                </div>
+                <img src="/static/posters/michael.jpg" alt="Michael">
             </div>
 
         </div>
 
-        <div class="filters-bar">
-            <div class="filter-select">Por película <span>▼</span></div>
-            <div class="filter-select">Por ciudad <span>▼</span></div>
-            <div class="filter-select">Por cine <span>▼</span></div>
-            <div class="filter-select">Por fecha <span>▼</span></div>
-            <button class="btn-filter-submit" disabled>🎛️ Filtrar</button>
+        <div class="socio-banner">
+            <div class="socio-text">
+                <h3>¿Preparado para vivir una experiencia de cine con Socio Cineplanet?</h3>
+            </div>
+            <div class="socio-actions">
+                <button class="btn-unete">Únete</button>
+                <button class="btn-vermas">Ver más</button>
+            </div>
         </div>
     </main>
 
-    <div id="chat-container">
-        <div id="chat-wrap">
-  <div id="chat-header">
-    <div class="bot-avatar">🎬</div>
-    <div class="header-info">
-      <div class="name">Aster — Asistente Cineplanet</div>
-      <div class="status"><span class="dot-online"></span>En línea ahora</div>
-    </div>
-  </div>
+    <button id="chat-launcher" class="chat-launcher">
+        🎬
+        <span class="chat-badge">1</span>
+    </button>
 
-  <div id="messages"></div>
-
-  <!-- Botones de acceso rápido -->
-  <div class="quick-btns">
-    <button class="qbtn" onclick="sendQuick('Ver cartelera de hoy')">🎬 Cartelera</button>
-    <button class="qbtn" onclick="sendQuick('¿Cuáles son las sedes disponibles?')">📍 Sedes</button>
-    <button class="qbtn" onclick="sendQuick('Quiero hacer una reserva')">🎟️ Reservar</button>
-    <button class="qbtn" onclick="sendQuick('¿Qué combos tienen?')">🍿 Combos</button>
-    <button class="qbtn" onclick="sendQuick('¿Cuáles son las promociones?')">🏷️ Promos</button>
-  </div>
-
- <div id="input-area">
-    <textarea id="userInput" placeholder="Escribe tu consulta aquí..." rows="1"></textarea>
-    <button id="sendBtn">➤</button>
-</div>
-</div>
+    <div id="chat-wrap" class="chat-hidden">
+        <div id="chat-header">
+            <div class="header-left" style="display: flex; align-items: center; gap: 12px;">
+                <div class="bot-avatar">🎬</div>
+                <div class="header-info">
+                    <div class="name">Poppy — Asistente Cineplanet</div>
+                    <div class="status"><span class="dot-online"></span>En línea ahora</div>
+                </div>
+            </div>
+            <button id="close-chat" class="close-btn">✖</button>
+        </div>
+        <div id="messages"></div>
+        <div class="quick-btns">
+            <button class="qbtn" onclick="sendQuick('Ver cartelera de hoy')">🎬 Cartelera</button>
+            <button class="qbtn" onclick="sendQuick('¿Cuáles son las sedes disponibles?')">📍 Sedes</button>
+            <button class="qbtn" onclick="sendQuick('Quiero hacer una reserva')">🎟️ Reservar</button>
+            <button class="qbtn" onclick="sendQuick('¿Qué combos tienen?')">🍿 Combos</button>
+        </div>
+        <div id="input-area">
+            <textarea id="userInput" placeholder="Escribe tu consulta aquí..." rows="1"></textarea>
+            <button id="sendBtn">➤</button>
+        </div>
     </div>
 
     <script src="/static/script.js"></script> 
